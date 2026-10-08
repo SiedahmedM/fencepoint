@@ -1,0 +1,23 @@
+{
+  "name": "fencepoint",
+  "version": "0.1.0",
+  "description": "Fenced execution for side effects you cannot safely retry.",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=24.21.0 <25" },
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist", "README.md", "LICENSE"],
+  "repository": { "type": "git", "url": "git+https://github.com/SiedahmedM/fencepoint.git" },
+  "bugs": { "url": "https://github.com/SiedahmedM/fencepoint/issues" },
+  "homepage": "https://github.com/SiedahmedM/fencepoint#readme",
+  "keywords": ["sqlite", "fencing", "idempotency", "side-effects", "leases"],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "tsc -p tsconfig.test.json && node --test .test-build/tests/*.test.js",
+    "build": "tsc -p tsconfig.build.json",
+    "demo": "tsc -p tsconfig.test.json && node .test-build/examples/webhook.js",
+    "prepack": "npm run build"
+  },
+  "devDependencies": { "@types/node": "24.19.1", "typescript": "7.0.2" }
+}
